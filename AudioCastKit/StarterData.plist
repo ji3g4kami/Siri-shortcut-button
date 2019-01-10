@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>episodes</key>
+	<array/>
+	<key>shows</key>
+	<array>
+		<dict>
+			<key>containerType</key>
+			<integer>1</integer>
+			<key>itemID</key>
+			<string>D052B948-DEA9-4A90-BD84-48DC5CB8B10B</string>
+			<key>artworkName</key>
+			<string>dinosaur</string>
+			<key>title</key>
+			<string>The Dinosaur Show</string>
+		</dict>
+		<dict>
+			<key>containerType</key>
+			<integer>1</integer>
+			<key>itemID</key>
+			<string>8B45F97B-6CE2-4BC4-824B-CE63A62EB302</string>
+			<key>artworkName</key>
+			<string>cooking</string>
+			<key>title</key>
+			<string>The Cooking Show</string>
+		</dict>
+	</array>
+	<key>playlists</key>
+	<array>
+		<dict>
+			<key>containerType</key>
+			<integer>2</integer>
+			<key>itemID</key>
+			<string>00BAEA98-9910-420B-B724-4074AE0D3C4B</string>
+			<key>artworkName</key>
+			<string>unplayedPlaylist</string>
+			<key>title</key>
+			<string>Unplayed Episodes</string>
+		</dict>
+	</array>
+</dict>
+</plist>
