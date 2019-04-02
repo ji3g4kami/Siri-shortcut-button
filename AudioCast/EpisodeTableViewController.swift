@@ -6,12 +6,15 @@ A table view controller that displays the episodes within a specific episode con
 */
 
 import UIKit
+import Intents
 import IntentsUI
 import AudioCastKit
 
 class EpisodeTableViewController: UITableViewController {
     
     private static let CellID = "EpisodeCell"
+    let siriButton = INUIAddVoiceShortcutButton(style: .black)
+    private var episodes: [PodcastEpisode]?
     
     var notificationToken: NSObjectProtocol?
     
@@ -49,12 +52,29 @@ class EpisodeTableViewController: UITableViewController {
     }
     
     func addSiriButton(to view: UIView) {
-        let button = INUIAddVoiceShortcutButton(style: .black)
-        button.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(button)
-        view.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
-        view.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+        siriButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(siriButton)
+        view.centerXAnchor.constraint(equalTo: siriButton.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: siriButton.centerYAnchor).isActive = true
+        
+        siriButton.addTarget(self, action: #selector(addToSiri(_:)), for: .touchUpInside)
+    }
+    
+    @objc
+    func addToSiri(_ sender: Any) {
+        
+        let intent: INPlayMediaIntent = PlayRequest(container: libraryContainer, episodes: episodes).intent
+        
+        intent.suggestedInvocationPhrase = "\(libraryContainer.title)"
+        if let shortcut = INShortcut(intent: intent) {
+            let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
+            viewController.modalPresentationStyle = .formSheet
+            viewController.delegate = self // Object conforming to `INUIAddVoiceShortcutViewControllerDelegate`.
+            siriButton.shortcut = shortcut
+            present(viewController, animated: true, completion: nil)
+        }
     }
     
     private func play(episodes: [PodcastEpisode]?) {
@@ -103,5 +123,27 @@ extension EpisodeTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         play(episodes: [episodesInContainer[indexPath.row]])
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension EpisodeTableViewController: INUIAddVoiceShortcutViewControllerDelegate, INUIEditVoiceShortcutViewControllerDelegate {
+    func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didUpdate voiceShortcut: INVoiceShortcut?, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didDeleteVoiceShortcutWithIdentifier deletedVoiceShortcutIdentifier: UUID) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func editVoiceShortcutViewControllerDidCancel(_ controller: INUIEditVoiceShortcutViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
