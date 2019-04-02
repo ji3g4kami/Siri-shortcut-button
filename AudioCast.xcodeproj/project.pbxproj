@@ -97,8 +97,8 @@
 		29DD87A2208C00E600910CD0 /* EpisodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewController.swift; sourceTree = "<group>"; };
 		29E15BDD20C09835008EE6CA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		29E15BDE20C0AC62008EE6CA /* PodcastLibraryDataManager+Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PodcastLibraryDataManager+Intents.swift"; sourceTree = "<group>"; };
-		52643BE052639D7000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
-		527BD650527BD2F000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
+		52643BE052639D7000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		527BD650527BD2F000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		6003EDF020857FE1006AE08A /* AudioCast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AudioCast.entitlements; sourceTree = "<group>"; };
 		6003EDF62085803C006AE08A /* AudioCastKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AudioCastKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003EDF82085803D006AE08A /* AudioCastKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioCastKit.h; sourceTree = "<group>"; };
@@ -165,7 +165,6 @@
 			children = (
 				527BD650527BD2F000000001 /* LICENSE.txt */,
 			);
-			name = LICENSE;
 			path = LICENSE;
 			sourceTree = "<group>";
 		};
@@ -288,7 +287,6 @@
 				603626A4207322A500370202 /* Frameworks */,
 				603626A5207322A500370202 /* Resources */,
 				603626CD207322C700370202 /* Embed App Extensions */,
-				603626D02073268000370202,
 				6003EE022085803D006AE08A /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -326,7 +324,7 @@
 		6036269F207322A500370202 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
@@ -490,11 +488,11 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -505,7 +503,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AudioCast${SAMPLE_CODE_DISAMBIGUATOR}.AudioCastKit";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dengli.AudioCast.AudioCastKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -526,7 +524,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -537,7 +535,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AudioCast${SAMPLE_CODE_DISAMBIGUATOR}.AudioCastKit";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dengli.AudioCast.AudioCastKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -673,13 +671,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AudioCast/AudioCast.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = "$(SRCROOT)/AudioCast/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AudioCast${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dengli.AudioCast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -694,13 +692,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AudioCast/AudioCast.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = "$(SRCROOT)/AudioCast/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AudioCast${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dengli.AudioCast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -713,14 +711,14 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AudioCastIntents/AudioCastIntents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = "$(SRCROOT)/AudioCastIntents/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AudioCast${SAMPLE_CODE_DISAMBIGUATOR}.AudioCastIntents";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dengli.AudioCast.AudioCastIntents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -734,14 +732,14 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AudioCastIntents/AudioCastIntents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = "$(SRCROOT)/AudioCastIntents/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AudioCast${SAMPLE_CODE_DISAMBIGUATOR}.AudioCastIntents";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dengli.AudioCast.AudioCastIntents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
