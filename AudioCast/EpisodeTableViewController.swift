@@ -6,6 +6,7 @@ A table view controller that displays the episodes within a specific episode con
 */
 
 import UIKit
+import IntentsUI
 import AudioCastKit
 
 class EpisodeTableViewController: UITableViewController {
@@ -37,11 +38,23 @@ class EpisodeTableViewController: UITableViewController {
             self?.episodesInContainer = libraryManager.episodes(for: container.itemID)
             self?.tableView.reloadData()
         }
+        
+        addSiriButton(to: view)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isToolbarHidden = true
+    }
+    
+    func addSiriButton(to view: UIView) {
+        let button = INUIAddVoiceShortcutButton(style: .black)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(button)
+        view.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
     }
     
     private func play(episodes: [PodcastEpisode]?) {
