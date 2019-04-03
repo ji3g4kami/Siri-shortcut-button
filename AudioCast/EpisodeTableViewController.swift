@@ -145,10 +145,10 @@ extension EpisodeTableViewController: INUIAddVoiceShortcutButtonDelegate {
 extension EpisodeTableViewController: INUIAddVoiceShortcutViewControllerDelegate, INUIEditVoiceShortcutViewControllerDelegate {
     
     func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didUpdate voiceShortcut: INVoiceShortcut?, error: Error?) {
+        self.siriButton.shortcut = voiceShortcut?.shortcut
         controller.dismiss(animated: true) { [unowned self] in
             let identifier = voiceShortcut?.shortcut.intent?.identifier
             UserDefaults.standard.set(identifier, forKey: self.libraryContainer.title)
-            self.addSiriButton(to: self.view)
         }
     }
 
@@ -163,10 +163,10 @@ extension EpisodeTableViewController: INUIAddVoiceShortcutViewControllerDelegate
     }
 
     func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
+        self.siriButton.shortcut = voiceShortcut?.shortcut
         controller.dismiss(animated: true) { [unowned self] in
             let identifier = voiceShortcut?.shortcut.intent?.identifier
             UserDefaults.standard.set(identifier, forKey: self.libraryContainer.title)
-            self.addSiriButton(to: self.view)
         }
     }
 
