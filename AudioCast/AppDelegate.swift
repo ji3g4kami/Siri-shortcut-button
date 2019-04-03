@@ -14,6 +14,11 @@ class AppDelegate: UIResponder {
 
     var window: UIWindow?
     var audioManager: AudioPlaybackManager?
+    
+    private lazy var libraryManager: PodcastLibraryDataManager = {
+        let libraryManager = PodcastLibraryDataManager.shared        
+        return libraryManager
+    }()
 }
 
 extension AppDelegate: UIApplicationDelegate {
@@ -22,6 +27,20 @@ extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication,
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        
+        if userActivity.activityType == "your_reverse_bundleID.The Dinosaur Show" {
+            let vc = EpisodeTableViewController()
+            vc.libraryContainer = libraryManager.podcastLibrary.shows[0]
+            vc.play()
+        } else if userActivity.activityType == "your_reverse_bundleID.The Cooking Show" {
+            let vc = EpisodeTableViewController()
+            vc.libraryContainer = libraryManager.podcastLibrary.shows[1]
+            vc.play()
+        } else if userActivity.activityType == "your_reverse_bundleID.Unplayed Episodes" {
+            let vc = EpisodeTableViewController()
+            vc.libraryContainer = libraryManager.podcastLibrary.playlists[0]
+            vc.play()
+        }
         
         // If a user taps on the UI for a media suggestion, the app will open and the media suggestion will be
         // delivered to the app within a NSUserActivity. The activity type string on the activity will be the
@@ -39,6 +58,8 @@ extension AppDelegate: UIApplicationDelegate {
         // user activity to a view controller for display.
         userActivity.addUserInfoEntries(from: [NSUserActivity.LibraryItemContainerIDKey: requestedContent.container.itemID])
         restorationHandler(navigationController.viewControllers)
+        
+        
         
         return true
     }
